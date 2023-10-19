@@ -20,5 +20,5 @@ export async function loadProjectConfig(cwd: string): Promise<ExpoConfig> {
     throw new Error(`Could not fetch the project info from ${cwd}, reason:\n${errorMessage(error)}`);
   }
 
-  return JSON.parse(stdout);
+  return JSON.parse(stdout.replace(/^[^{]+/, ''));
 }

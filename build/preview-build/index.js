@@ -76328,7 +76328,7 @@ async function loadProjectConfig(cwd) {
     catch (error) {
         throw new Error(`Could not fetch the project info from ${cwd}, reason:\n${utils_errorMessage(error)}`);
     }
-    return JSON.parse(stdout);
+    return JSON.parse(stdout.replace(/^[^{]+/, ''));
 }
 
 ;// CONCATENATED MODULE: ./src/actions/preview-build.ts
